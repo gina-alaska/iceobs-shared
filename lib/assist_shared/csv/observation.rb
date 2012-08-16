@@ -21,8 +21,8 @@ module AssistShared
         def headers opts = {}
           [
             'Date',
-            'PO',
-            'AO',
+            # 'PO',
+            # 'AO',
             'LAT',
             'LON',
             Ice.headers,
