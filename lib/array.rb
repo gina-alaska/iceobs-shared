@@ -10,4 +10,10 @@ class Array
       end
     end
   end
+  
+  def to_csv
+        
+    
+  end
+    
 end
