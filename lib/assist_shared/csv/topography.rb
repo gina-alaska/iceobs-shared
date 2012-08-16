@@ -17,6 +17,7 @@ module AssistShared
           'Top',
           'C',
           'RH',
+          'Old',
           'Cs',
           'SC'
         ]
