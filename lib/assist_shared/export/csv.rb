@@ -54,5 +54,11 @@ module AssistShared
     
     end
     
+    
+    
+    def code_lookup field
+      self.respond_to?("#{field}_lookup") ? self.send("#{field}_lookup").try(:code) : "#{field}_lookup_code"
+    end
+    
   end
 end
