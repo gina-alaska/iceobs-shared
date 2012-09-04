@@ -5,9 +5,8 @@ module AssistShared
         if options[:fields].any?
           options[:fields].each do |field, table|
             klass = table.camelcase.constantize
-            attribute = record.attributes.keys.select{|a| a.start_with? field.to_s}.first
-            unless options[:allow_blank] && record.send(attribute).nil?
-              unless klass.where(code: record.send(attribute)).any?
+            unless options[:allow_blank] && record.send(field).nil?
+              unless klass.where(id: record.send(field).id).any?
                 record.errors.add attribute, "contains an invalid lookup code"
               end
             end
