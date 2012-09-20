@@ -21,10 +21,6 @@ module AssistShared
       def finalize?
         self.finalize.nil? ? true : self.finalize
       end
-     
-      def finalize!
-        self.finalize = true
-      end
     
       def save opts={}
         opts.merge!(validate: self.finalize?)

@@ -10,8 +10,7 @@ module AssistShared
         
         validates_with ::AssistShared::Validations::LookupCodeValidator, 
                         fields: { thin_ice_lookup: "ice_lookup", thick_ice_lookup: "ice_lookup", open_water_lookup: "open_water_lookup"}, 
-                        allow_blank: true, 
-                        if: :finalize?
+                        allow_blank: true
   
       end
       
