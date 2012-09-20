@@ -3,6 +3,7 @@ module AssistShared
     module IceObservation
       extend ActiveSupport::Concern
       include ActiveModel::Validations 
+      
       included do
         with_options allow_blank: true do |record|
           record.validates :partial_concentration, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10}

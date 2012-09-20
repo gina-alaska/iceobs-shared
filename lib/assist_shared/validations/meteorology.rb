@@ -3,8 +3,12 @@ module AssistShared
     module Meteorology
       extend ActiveSupport::Concern
       include ActiveModel::Validations 
+      
       included do
-        validates_with ::AssistShared::Validations::LookupCodeValidator, fields: {visibility_lookup: 'visibility_lookup', weather_lookup: 'weather_lookup'}, allow_blank: true
+        validates_with ::AssistShared::Validations::LookupCodeValidator, 
+                        fields: {visibility_lookup: 'visibility_lookup', weather_lookup: 'weather_lookup'}, 
+                        allow_blank: true,
+                        if: :finalize?
         
         # validates :cloud_heights, clouds.high, clouds.medium, ">"
         # 
