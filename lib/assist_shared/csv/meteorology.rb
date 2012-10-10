@@ -3,8 +3,8 @@ module AssistShared
     module Meteorology
       def as_csv opts={}
         [
-          self.weather_lookup_code,
-          self.visibility_lookup_code,
+          self.weather_lookup.try(:code),
+          self.visibility_lookup.try(:code),
           self.clouds.high.as_csv,
           self.clouds.medium.as_csv,
           self.clouds.low.as_csv

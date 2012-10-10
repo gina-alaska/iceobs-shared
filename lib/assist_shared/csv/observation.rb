@@ -17,6 +17,14 @@ module AssistShared
         ].flatten
       end
       
+      def to_csv opts={}
+        c = ::CSV.generate(headers: true) do |csv|
+          csv << self.class.headers
+          csv << self.as_csv
+        end
+        c
+      end
+      
       module ClassMethods
         def headers opts = {}
           [

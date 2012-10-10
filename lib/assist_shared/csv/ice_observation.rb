@@ -6,13 +6,13 @@ module AssistShared
           self.partial_concentration,
           self.ice_lookup_code,
           self.thickness,
-          self.floe_size_lookup_code,
-          self.snow_lookup_code,
+          self.floe_size_lookup.try(:code),
+          self.snow_lookup.try(:code),
           self.snow_thickness,
           self.topography.as_csv,
           self.melt_pond.as_csv,
-          self.biota_lookup_code,
-          self.sediment_lookup_code
+          self.biota_lookup.try(:code),
+          self.sediment_lookup.try(:code)
         ]
       end
 

@@ -4,9 +4,9 @@ module AssistShared
       def as_csv opts={}
         [
           self.surface_coverage,
-          self.max_depth_lookup_code,
-          self.pattern_lookup_code,
-          self.surface_lookup_code,
+          self.max_depth_lookup.try(:code),
+          self.pattern_lookup.try(:code),
+          self.surface_lookup.try(:code),
           self.freeboard
         ]
       end

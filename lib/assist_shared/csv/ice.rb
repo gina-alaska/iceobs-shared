@@ -4,9 +4,9 @@ module AssistShared
       def as_csv opts={}
         [
           self.total_concentration,
-          self.open_water_lookup_code,
-          self.thin_ice_lookup_code,
-          self.thick_ice_lookup_code,
+          self.open_water_lookup.try(:code),
+          self.thin_ice_lookup.try(:code),
+          self.thick_ice_lookup.try(:code),
         ]
       end
 

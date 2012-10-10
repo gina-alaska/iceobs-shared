@@ -3,9 +3,9 @@ module AssistShared
     module Cloud
       def as_csv opts={}
         [
-          self.cloud_lookup_code,
-          self.height,
-          self.cover
+          cloud_lookup.try(:code),
+          height,
+          cover
         ]
       end
 

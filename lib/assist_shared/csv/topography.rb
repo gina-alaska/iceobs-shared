@@ -3,7 +3,7 @@ module AssistShared
     module Topography
       def as_csv opts={}
         [
-          self.topography_lookup_code,
+          self.topography_lookup.try(:code),
           self.concentration,
           self.ridge_height,
           self.old,
