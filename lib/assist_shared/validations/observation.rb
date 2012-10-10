@@ -10,11 +10,11 @@ module AssistShared
         validates_presence_of :primary_observer, :obs_datetime, :latitude, :longitude, :hexcode
         validates_uniqueness_of :hexcode
         
-        validate :bounded
+        validate :location
         
-        def bounded
-          #self.send(field) >= range.first && self.send(field) <= range.last
-          true
+        def location 
+          errors.add(:latitude, "Latitudes must be between -90 and 90") unless (latitude.to_f < 90 && latitude.to_f > -90)
+          errors.add(:longitude, "Longitude must be between -180 and 180") unless (longitude.to_f < 180 && longitude.to_f > -180)
         end
       end
       

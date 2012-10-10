@@ -6,7 +6,7 @@ module AssistShared
       
       included do
         validates_with ::AssistShared::Validations::LookupCodeValidator, 
-                        fields: {visibility_lookup: 'visibility_lookup', weather_lookup: 'weather_lookup'}, 
+                        fields: {visibility_lookup_id: 'visibility_lookup', weather_lookup_id: 'weather_lookup'}, 
                         allow_blank: true
         
         # validates :cloud_heights, clouds.high, clouds.medium, ">"
