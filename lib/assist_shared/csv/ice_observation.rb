@@ -4,7 +4,7 @@ module AssistShared
       def as_csv opts={}
         [
           self.partial_concentration,
-          self.ice_lookup_code,
+          self.ice_lookup.try(:code),
           self.thickness,
           self.floe_size_lookup.try(:code),
           self.snow_lookup.try(:code),
