@@ -28,6 +28,8 @@ module AssistShared
       def first_and_last_name( observer )
         if observer.is_a? Hash
           o = "#{observer['firstname']} #{observer['lastname']}"
+        elsif observer.is_a? String
+          o = observer
         else
           o = "#{observer.firstname} #{observer.lastname}"
         end
