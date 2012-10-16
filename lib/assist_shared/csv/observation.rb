@@ -5,8 +5,8 @@ module AssistShared
       def as_csv opts={}
         [ 
           self.obs_datetime,
-          # :primary_observer,
-          # :addition_observers,
+          self.primary_observer,
+          self.additional_observers.join(":"),
           self.latitude,
           self.longitude,
           self.ice.as_csv,
@@ -29,8 +29,8 @@ module AssistShared
         def headers opts = {}
           [
             'Date',
-            # 'PO',
-            # 'AO',
+            'PO',
+            'AO',
             'LAT',
             'LON',
             Ice.headers,
