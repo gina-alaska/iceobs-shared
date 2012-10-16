@@ -27,7 +27,7 @@ module AssistShared
       
       def first_and_last_name( observer )
         if observer.is_a? Hash
-          o = "#{observer[:firstname]} #{observer[:lastname]}"
+          o = "#{observer['firstname']} #{observer['lastname']}"
         else
           o = "#{observer.firstname} #{observer.lastname}"
         end
