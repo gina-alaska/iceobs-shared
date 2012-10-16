@@ -5,8 +5,8 @@ module AssistShared
       def as_csv opts={}
         [ 
           self.obs_datetime,
-          self.primary_observer,
-          self.additional_observers.join(":"),
+          first_and_last_name(self.primary_observer),
+          self.additional_observers.collect{|o| first_and_last_name(o)}.join(":"),
           self.latitude,
           self.longitude,
           self.ice.as_csv,
@@ -23,6 +23,15 @@ module AssistShared
           csv << self.as_csv
         end
         c
+      end
+      
+      def first_and_last_name( observer )
+        if observer.is_a? Hash
+          o = "#{observer[:firstname]} #{observer[:lastname]}"
+        else
+          o = "#{observer.firstname} #{observer.lastname}"
+        end
+        o
       end
       
       module ClassMethods
