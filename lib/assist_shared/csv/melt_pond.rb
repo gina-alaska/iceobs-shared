@@ -12,7 +12,7 @@ module AssistShared
       end
 
       def self.headers opts={}
-        [ 'MPC', 'MPD', 'MPP', 'MPT', 'F']
+        [ 'MPC', 'MPD', 'MPP', 'MPT', 'MPF']
       end
 
     end
