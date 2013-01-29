@@ -8,7 +8,7 @@ module AssistShared
         attr_accessor :finalize
 
         validates_presence_of :primary_observer, :obs_datetime, :latitude, :longitude, :hexcode
-        validates_uniqueness_of :hexcode
+        validates_uniqueness_of :hexcode, message: "This cruise already exists (Lat/Lon, Time)"
         
         validate :location
         
