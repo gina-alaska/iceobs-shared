@@ -13,8 +13,8 @@ module AssistShared
       
       def self.headers opts={}
         [
-          'V',
           'WX',
+          'V',
           %W{ H M L }.collect{|type| Cloud.headers prefix: type}        
         ].flatten
       end
