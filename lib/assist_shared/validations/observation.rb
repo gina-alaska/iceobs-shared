@@ -20,7 +20,7 @@ module AssistShared
         
         def partial_concentrations_equal_total_concentration
           unless total_concentration == ice_observations.inject(0){|sum, p| sum + p.partial_concentration.to_i}
-            errors.add(:base), "Partial concentrations must equal total concentration"
+            errors.add(:base, "Partial concentrations must equal total concentration")
           end
         end
       end
