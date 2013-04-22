@@ -8,7 +8,8 @@ module AssistShared
         validates_with ::AssistShared::Validations::LookupCodeValidator, 
                         fields: {visibility_lookup_id: 'visibility_lookup', weather_lookup_id: 'weather_lookup'}, 
                         allow_blank: true
-        
+                        #Visibility should be required
+                        
         # validates :cloud_heights, clouds.high, clouds.medium, ">"
         # 
         # def cloud_heights a, b, comparison
