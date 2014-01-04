@@ -14,6 +14,7 @@ module AssistShared
           self.ice_observations.secondary.as_csv, 
           self.ice_observations.tertiary.as_csv,
           self.meteorology.as_csv,
+          self.photos.count
         ].flatten
       end
       
@@ -46,7 +47,8 @@ module AssistShared
             'LON',
             Ice.headers,
             %w{ P S T }.collect{|type| IceObservation.headers prefix: type },
-            Meteorology.headers
+            Meteorology.headers,
+            'Photo'
           ].flatten
         end
       end
