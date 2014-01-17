@@ -24,15 +24,15 @@ module AssistShared
             less_than_or_equal_to: 360
           }, 
           allow_blank: true
-        validates :air_temperature, numericality: true
-        validates :water_temperature, numericality: true
+        validates :air_temperature, numericality: true, allow_blank: true
+        validates :water_temperature, numericality: true, allow_blank: true
         validates :relative_humidity, 
           numericality: {
             greater_than_or_equal_to: 0, 
             less_than_or_equal_to: 100
           }, 
           allow_blank: true
-        validates :relative_humidity, numericality: true
+        validates :relative_humidity, numericality: true, allow_blank: true
         # validates :cloud_heights, clouds.high, clouds.medium, ">"
         # 
         # def cloud_heights a, b, comparison
