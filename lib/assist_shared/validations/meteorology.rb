@@ -9,7 +9,18 @@ module AssistShared
                         fields: {visibility_lookup_id: 'visibility_lookup', weather_lookup_id: 'weather_lookup'}, 
                         allow_blank: true
                         #Visibility should be required
-                        
+        
+        validates :total_cloud_cover, :numericality, 
+          {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 8}, allow_blank: true
+        validates :wind_speed, :numericality,
+          {greater_than_or_equal_to: 0}, allow_blank: true
+        validates :wind_direction, :numericality,
+          {greater_than_or_equal_to: 0, less_than_or_equal_to: 360}, allow_blank: true
+        validates :air_temperature, :numericality
+        validates :water_temperature, :numericality
+        validates :relative_humidity, :numericality,
+          {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}, allow_blank: true
+        validates :relative_humidity, :numericality
         # validates :cloud_heights, clouds.high, clouds.medium, ">"
         # 
         # def cloud_heights a, b, comparison
