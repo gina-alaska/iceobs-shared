@@ -10,7 +10,7 @@ module AssistShared
     AssistShared::Validations.autoload :MeltPond, 'assist_shared/validations/melt_pond'
     AssistShared::Validations.autoload :Meteorology, 'assist_shared/validations/meteorology'
     AssistShared::Validations.autoload :Topography, 'assist_shared/validations/topography'
-    AssistShared::Validations.autoload :Shared, 'assist_shared/validations/shared'
+    AssistShared::Validations.autoload :Ship, 'assist_shared/validations/ship'
 
   end
 end

@@ -1,7 +1,6 @@
 module AssistShared
   module CSV
     module Ship
-      extend ActiveSupport::Concern
 
       def as_csv opts={}
         [
@@ -20,13 +19,8 @@ module AssistShared
         c
       end
       
-      module ClassMethods
-        def headers
-          [ 'ShP', 'ShS', 'ShH', 'ShA' ]
-        end
-      end
-      included do
-        extend ClassMethods
+      def self.headers
+        [ 'ShP', 'ShS', 'ShH', 'ShA' ]
       end
     end
   end

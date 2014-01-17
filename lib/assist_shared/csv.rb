@@ -8,6 +8,7 @@ module AssistShared
     AssistShared::CSV.autoload :MeltPond, 'assist_shared/csv/melt_pond'
     AssistShared::CSV.autoload :Meteorology, 'assist_shared/csv/meteorology'
     AssistShared::CSV.autoload :Topography, 'assist_shared/csv/topography'
+    AssistShared::CSV.autoload :Ship, 'assist_shared/csv/ship'
   end
 end
  
