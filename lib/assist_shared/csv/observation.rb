@@ -15,6 +15,8 @@ module AssistShared
           self.ice_observations.tertiary.as_csv,
           self.meteorology.as_csv,
           self.ship.as_csv,
+          self.faunas.collect(&:name).join("//"),
+          self.faunas.collect(&:count).join("//"),
           self.photos.count
         ].flatten
       end
@@ -50,6 +52,8 @@ module AssistShared
             %w{ P S T }.collect{|type| IceObservation.headers prefix: type },
             Meteorology.headers,
             Ship.headers,
+            'FN',
+            'FC',
             'Photo'
           ].flatten
         end
