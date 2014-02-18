@@ -5,11 +5,11 @@ module AssistShared
       include ActiveModel::Validations 
       
       included do
+        validates :visibility_lookup_id, presence: true
         validates_with ::AssistShared::Validations::LookupCodeValidator, 
                         fields: {visibility_lookup_id: 'visibility_lookup', weather_lookup_id: 'weather_lookup'}, 
                         allow_blank: true
-                        #Visibility should be required
-        
+                        
         validates :total_cloud_cover, 
           numericality: { 
             only_integer: true, 
