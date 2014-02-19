@@ -6,7 +6,7 @@ module AssistShared
         [ 
           self.obs_datetime,
           first_and_last_name(self.primary_observer),
-          self.additional_observers.collect{|o| first_and_last_name(o)}.join(":"),
+          (a = self.additional_observers.collect{|o| first_and_last_name(o)}.join(":")).present? ? a : nil,
           self.latitude,
           self.longitude,
           self.ice.as_csv,
@@ -15,8 +15,8 @@ module AssistShared
           self.ice_observations.tertiary.as_csv,
           self.meteorology.as_csv,
           self.ship.as_csv,
-          self.faunas.collect(&:name).join("//"),
-          self.faunas.collect(&:count).join("//"),
+          (f = self.faunas.collect(&:name).join("//")).present? ? f : nil,
+          (f = self.faunas.collect(&:count).join("//")).present? ? f : nil,
           self.photos.count
         ].flatten
       end
