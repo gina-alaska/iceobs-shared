@@ -12,7 +12,6 @@ module AssistShared
         
         validate :location
         validate :partial_concentrations_equal_total_concentration
-        validate :ice_thickness
         validate :ice_thickness_are_decreasing_order
         validate :ice_lookup_codes
         validate :ice_lookup_codes_are_increasing_order
@@ -33,21 +32,6 @@ module AssistShared
             primary.errors.add(:partial_concentration)
             secondary.errors.add(:partial_concentration)
             tertiary.errors.add(:partial_concentration)
-          end
-        end
-
-        def ice_thickness
-          primary = ice_observations.primary
-          secondary = ice_observations.secondary
-          tertiary = ice_observations.tertiary
-
-          if secondary.thickness and !primary.thickness
-            secondary.errors.add(:thickness)
-            errors.add(:ice, "Secondary thickness without primary thickness") 
-          end
-          if tertiary.thickness and !secondary.thickness
-            tertiary.errors.add(:thickness)
-            errors.add(:ice, "Tertiary thickness without secondary thickness") 
           end
         end
         
