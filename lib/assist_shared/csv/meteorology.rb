@@ -10,13 +10,14 @@ module AssistShared
           self.clouds.low.as_csv,
           self.total_cloud_cover,
           self.wind_speed,
+          self.wind_direction,
           self.air_temperature,
           self.water_temperature,
           self.relative_humidity,
           self.air_pressure
         ]
       end
-      
+
       def self.headers opts={}
         [
           'WX',
@@ -24,13 +25,14 @@ module AssistShared
           %W{ H M L }.collect{|type| Cloud.headers prefix: type} ,
           'TCC',
           'WS',
+          'WD',
           'AT',
           'WT',
           'RelH',
-          'AP'       
+          'AP'
         ].flatten
       end
-      
+
     end
   end
 end

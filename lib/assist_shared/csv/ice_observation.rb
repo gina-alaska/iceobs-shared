@@ -12,7 +12,9 @@ module AssistShared
           self.topography.as_csv,
           self.melt_pond.as_csv,
           self.biota_lookup.try(:code),
-          self.sediment_lookup.try(:code)
+          self.sediment_lookup.try(:code),
+          self.biota_density_lookup.try(:code),
+          self.biota_location_lookup.try(:code)
         ]
       end
 
@@ -27,7 +29,9 @@ module AssistShared
           Topography.headers,
           MeltPond.headers,
           'A',
-          'SD'        
+          'SD',
+          'AD',
+          'AL'
         ].flatten.collect{|i| "#{opts[:prefix]}#{i}#{opts[:suffix]}"}
       end
 

@@ -8,12 +8,14 @@ module AssistShared
           self.pattern_lookup.try(:code),
           self.surface_lookup.try(:code),
           self.freeboard,
-          self.bottom_type_lookup.try(:code)
+          self.bottom_type_lookup.try(:code),
+          self.dried_ice,
+          self.rotten_ice
         ]
       end
 
       def self.headers opts={}
-        [ 'MPC', 'MPD', 'MPP', 'MPT', 'MPF', 'MBT']
+        [ 'MPC', 'MPD', 'MPP', 'MPT', 'MPF', 'MBT', 'MDI', 'MRI']
       end
 
     end
