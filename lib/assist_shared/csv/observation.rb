@@ -19,7 +19,8 @@ module AssistShared
           (f = self.faunas.collect(&:count).join("//")).present? ? f : nil,
           self.photos.count,
           self.notes.collect{|n| n.text.blank? ? nil : n.text},
-          self.comments.collect{|c| c.data.blank? ? nil : "#{c.data} -- #{c.user.first_and_last_name}"}
+          (c = self.comments.collect{|c|
+            c.data.blank? ? nil : "#{c.data} -- #{c.user.first_and_last_name}".dump}.join("//")).present? ? c : nil
         ].flatten
       end
 
@@ -44,7 +45,6 @@ module AssistShared
 
       module ClassMethods
         def headers opts = {}
-          comment_count = opts.delete(:comment_count) || 0
           [
             'Date',
             'PO',
@@ -59,7 +59,7 @@ module AssistShared
             'FC',
             'Photo',
             Array.new(3){|i| "note#{i}" },
-            Array.new(comment_count){ "comment" }
+            'Comments'
           ].flatten
         end
       end
