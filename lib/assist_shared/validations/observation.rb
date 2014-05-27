@@ -59,15 +59,15 @@ module AssistShared
             errors.add(:ice, "Thick ice type thinner than primary")
             primary.errors.add(:ice_lookup_id)
           end
-          if decreasing_order?(primary.ice_lookup and secondary.ice_lookup)
+          if decreasing_order?(primary.ice_lookup, secondary.ice_lookup)
             errors.add(:ice, "Primary ice type thinner than secondary")
             secondary.errors.add(:ice_lookup_id)
           end
-          if decreasing_order?(secondary.ice_lookup and tertiary.ice_lookup) 
+          if decreasing_order?(secondary.ice_lookup, tertiary.ice_lookup) 
             errors.add(:ice, "Secondary ice type thinner than tertiary")
             tertiary.errors.add(:ice_lookup_id)
           end
-          if decreasing_order?(ice.thin_ice_lookup and tertiary.ice_lookup)
+          if decreasing_order?(ice.thin_ice_lookup, tertiary.ice_lookup)
             errors.add(:ice, "Tertiary ice type thinner than thin ice type")
             tertiary.errors.add(:ice_lookup_id)
           end
