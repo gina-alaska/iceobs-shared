@@ -3,7 +3,8 @@ module AssistShared
     module Observation
       extend ActiveSupport::Concern
       include ActiveModel::Validations
-
+      include AssistShared::Concerns::IceType
+      
       included do
         attr_accessor :finalize
 
