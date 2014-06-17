@@ -4,7 +4,7 @@ module AssistShared
       extend ActiveSupport::Concern
       include ActiveModel::Validations
       include AssistShared::Concerns::IceType
-      
+
       included do
         attr_accessor :finalize
 
@@ -123,7 +123,7 @@ module AssistShared
         return true if (thick.nil? or thin.nil?)
         return true if (always_pass & [thick.code, thin.code]).any?
 
-        ORDERED_CODES.index(thick.code) <= ORDERED_CODES.index(thin.code)
+        ORDERED_CODES.index(thick.code) >= ORDERED_CODES.index(thin.code)
       end
 
     end
